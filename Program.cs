@@ -1,4 +1,20 @@
-﻿using System;
+﻿/*
+    azure-ddns - set Azure Public DNS zone to current public IP of host machine
+    Copyright (C) 2022  Kevin Stone
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+*/
+using System;
 using System.Net.Http;
 using Azure.ResourceManager.Dns;
 using Azure.ResourceManager.Dns.Models;
@@ -16,6 +32,14 @@ namespace Envixe.Server
         private static List<string> RecordSetNames = new List<string> {"redgods.valheim.games.envixe.com"};
         static async Task Main(string[] args)
         {
+            Console.WriteLine
+            (
+                @"azure-ddns  Copyright (C) 2022  Kevin Stone
+
+                This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+                This is free software, and you are welcome to redistribute it
+                under certain conditions; type `show c' for details."
+            );
             try 
             {
                 await SetAzureDns();
