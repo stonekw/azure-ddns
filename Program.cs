@@ -29,7 +29,7 @@ namespace Envixe.Server
         private static string SubscriptionID = "9ca8af70-8d94-4297-a4e8-7c6ebfa5eb14";
         private static string ResourceGroupName = "envixe-misc";
         private static string DnsZoneName = "envixe.com";
-        private static List<string> RecordSetNames = new List<string> {"redgods.valheim.games.envixe.com"};
+        private static List<string> RecordSetNames = new List<string> {"valheim.redgods.envixe.com","ark.redgods.envixe.com"};
         static async Task Main(string[] args)
         {
             Console.WriteLine

@@ -23,6 +23,11 @@ To Deploy:
 
 `sudo dotnet publish -c Release -o /home/cron-azure-ddns/bin/azure-ddns -r linux-x64`
 
+4. Ensure folder/file permissions after publish - replace cron-azure-ddns with your cron user name. Replace cronusers with your cron group name, or skip. 
+`chown -R cron-azure-ddns /home/cron-azure-ddns`
+`chgrp -R cronusers /home/cron-azure-ddns`
+`chmod -R 770`
+
 3. create cron tab
     1. Impersonate the user created in step 1:
     `sudo -u [username] -s`
@@ -31,7 +36,7 @@ To Deploy:
     `crontab -e`
 
     3. Add line cron line. This example runs every minute and logs to home directory:
-    `* * * * * dotnet /home/cron-azure-ddns/bin/azure-ddns/azure-ddns.dll >> /home/cron-azureddns/CronLog/cron-azure-ddns.log 2>&1 `
+    `* * * * * dotnet /home/cron-azure-ddns/bin/azure-ddns/azure-ddns.dll >> /home/cron-azureddns/CronLog/cron-azure-ddns.log 2>&1`
 
 4. Check cron run log
     `cat /var/log/syslog | grep cron`
